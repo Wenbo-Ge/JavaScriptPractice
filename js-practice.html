@@ -6,9 +6,129 @@
 <body>
 	<h1>JS Practice</h1>
 	<p id="part1">How is going?</p>
-	<button type="button" onclick="document.getElementById('part1').innerHTML = 'NOT BAD'">
-		Change Content
+	<button type="button" onclick="document.getElementById('part1').innerHTML = 'NOT BAD!'">
+		Answer
+	</button>
+	<button type="button" onclick="document.getElementById('part1').style.color='blue'">
+		Change Color
 	</button>
 	<br><hr>
+
+	<img src="https://i.ytimg.com/vi/obuZmZTRPFQ/maxresdefault.jpg" id="image" style="width: 200px;height: 200px;display: flex">
+	<br>
+	<button type="button" onclick="document.getElementById('image').src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR27IxMS7V1FpeQ-0lv43TUsylMRR7i3Iv_e7clYVEn14bMRyAa'">Change Image</button>
+
+	<button type="button" onclick="document.getElementById('image').style.display='none'">
+		Hide Image
+	</button>
+	<button type="button" onclick="document.getElementById('image').style.display='flex'">
+		Show Image
+	</button>
+
+<!-- 用方法来调用 -->
+	<br><br><hr>
+	<p id="part2">Which Football Club do you like?</p>
+	<button type="button" onclick="script1()">
+		Answer
+	</button>
+
+	<br><br><hr>
+
+	<button type="button" onclick="script2()">
+		Click to see who is the best player in the team
+	</button>
+
+	<br><br><hr>
+	<button type="button" onclick="script3()">
+		debug console
+	</button>
+
+	<br><br><hr>
+	<p>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+	<p id="blank"></p>
+
+	<button type="button" onclick="script4()">
+		length
+	</button>
+	<button type="button" onclick="document.getElementById('blank').innerHTML=alphabet.indexOf('A')">
+		index of
+	</button>
+	<button type="button" onclick="script5()">
+		search
+	</button>
+	<button type="button" onclick="document.getElementById('blank').innerHTML=alphabet.slice(0,2)">
+		slice
+	</button>
+	<button type="button" onclick="document.getElementById('blank').innerHTML=alphabet.substr(1,5)">
+		substr
+	</button>
+	<button type="button" onclick="document.getElementById('blank').innerHTML=alphabet.concat(addNew,' alphabet')">
+		concat
+	</button>
+	<button type="button" onclick="document.getElementById('blank').innerHTML=alphabet.replace('XYZ','666')">
+		replace
+	</button>
+	<button type="button" onclick="document.getElementById('blank').innerHTML=alphabet.split('J')[1]">
+		split
+	</button>
+	<br><br><hr>
+	<p id="calc">Result</p>
+	<button type="button" onclick="document
+	.getElementById('calc').innerHTML=Math.round(4.7)">
+		round 4.7
+	</button>
+	<button type="button" onclick="script6()">
+		2 power of 3
+	</button>
+	<button type="button" onclick="document
+	.getElementById('calc').innerHTML=Math.sqrt(64)">
+		square  root of 64
+	</button>
+	<button type="button" onclick="document
+	.getElementById('calc').innerHTML=Math.abs(-5)">
+		absolute value of -5
+	</button>
+	<button type="button" onclick="document
+	.getElementById('calc').innerHTML=Math.ceil(4.5)">
+		ceil 4.5
+	</button>
+	<button type="button" onclick="document
+	.getElementById('calc').innerHTML=Math.floor(4.5)">
+		floor 4.5
+	</button>
+	<br><br><hr>
+	<p id="DateOutput">Date Output</p>
+	<button type="button" onclick="document.getElementById('DateOutput').innerHTML=year + '' + month + '' + date +''+ weekDay[d.getDay()]">
+		current date
+	</button>
+
+<script type="text/javascript">
+	function script1 () {
+		document.getElementById('part2').innerHTML='Barcelona FC';
+	}
+	function script2 () {
+		window.alert('Lionel Messi!');
+	}
+	function script3 () {
+		console.log('Good way to debug');
+	}
+	var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	var addNew = ' is';
+	function script4 () {
+		document.getElementById('blank').innerHTML=alphabet.length;
+	}
+	function script5 () {
+		document.getElementById('blank').innerHTML=1+alphabet.search('B')
+	}
+	function script6 () {
+		document.getElementById('calc').innerHTML=Math.pow(2,3);
+	}
+	var weekDay = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+	var d = new Date();
+	var year = d.getFullYear();
+	var month =d.getMonth()+1;
+	var day = d.getDay();
+	var date =d.getDate();
+</script>
 </body>
 </html>
