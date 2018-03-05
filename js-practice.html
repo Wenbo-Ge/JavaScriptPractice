@@ -101,6 +101,14 @@
 	<button type="button" onclick="document.getElementById('DateOutput').innerHTML=year + '' + month + '' + date +''+ weekDay[d.getDay()]">
 		current date
 	</button>
+	<div id="one" class="two" style="width: 200px;height: 200px;color: black;font-size: 12px;background-color: white; margin: auto; display: flex; align-items: center;justify-content: center;">
+		<p>Assignment2</p>
+	</div>
+	<div class="three" style="display: flex;justify-content: center; ">
+		<button type="button" onclick="style1()">
+		Change Style
+		</button>
+	</div>
 
 <script type="text/javascript">
 	function script1 () {
@@ -129,6 +137,10 @@
 	var month =d.getMonth()+1;
 	var day = d.getDay();
 	var date =d.getDate();
+	function style1 () {
+			var obj = document.getElementById('one')
+			obj.style.cssText='width: 150px;height: 150px;color: blue;font-size: 20px;background-color: yellow;margin: auto;display:flex;align-items:center;justify-content:center;'
+		}
 </script>
 </body>
 </html>
