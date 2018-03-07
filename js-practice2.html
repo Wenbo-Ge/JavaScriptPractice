@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Practice 2</title>
+</head>
+<body>
+	<h1> ARRAY</h1>
+	<p id="array"></p>
+	<button type="button" onclick="add_lemon()">
+		add lemon
+	</button>
+
+	<button type="button" onclick="join_function()">
+		Join
+	</button>
+
+	<button type="button" onclick="pop_function()">
+		pop-remove last element
+	</button>
+	<button type="button" onclick="shift_function()">
+		remove  beginning
+	</button>
+	<button type="button" onclick="unshift_function()">
+		add from beginning
+	</button>
+
+	<button type="button" onclick="delete_function()">
+		delete
+	</button>
+
+	<button type="button" onclick="splice_function()">
+		insert elements
+	</button>
+
+	<button type="button" onclick="sort_array()">
+		sort
+	</button>
+
+	<button type="button" onclick="reverse_array()">
+		reverse
+	</button>
+
+	<script type="text/javascript">
+		var fruits = ['banana','orange','apple','mango'];
+		document.getElementById('array').innerHTML = fruits;
+		function add_lemon () {
+			fruits.push('lemon');
+			document.getElementById('array').innerHTML = fruits;
+		}
+		function join_function () {
+			document.getElementById('array').innerHTML = fruits.join('*');
+		}
+		function pop_function () {
+			fruits.pop();
+			document.getElementById('array').innerHTML = fruits;
+		}
+		function shift_function () {
+			fruits.shift();
+			document.getElementById('array').innerHTML = fruits;
+		}
+		function unshift_function () {
+			fruits.unshift('kiwi');
+			document.getElementById('array').innerHTML= fruits;
+		}
+		function delete_function () {
+			delete fruits[0];
+			document.getElementById('array').innerHTML= fruits;
+		}
+		function splice_function () {
+			fruits.splice(2,0,'kiwi','lemon');
+			document.getElementById('array').innerHTML= fruits;
+		}
+		function sort_array () {
+			fruits.sort();
+			document.getElementById('array').innerHTML= fruits;
+		}
+		function reverse_array () {
+			fruits.reverse();
+			document.getElementById('array').innerHTML= fruits;
+		}
+	</script>
+
+
+
+	<br><br><hr>
+
+
+
+
+	<p id="numbers"></p>
+	<button type="button" onclick="sort_num()">
+		sort
+	</button>
+
+	<button type="button" onclick="array_max(num)">
+		max in array
+	</button>
+
+	<script type="text/javascript">
+		var num = [40,100,1,5,25,10];
+		document.getElementById('numbers').innerHTML= num;
+		function sort_num () {
+			num.sort(function(a,b) {return a-b});
+			document.getElementById('numbers').innerHTML= num;
+		}
+		function array_max (num) {
+			document.getElementById('numbers').innerHTML= Math.max.apply(null, num);
+		}
+	</script>
+
+
+	<br><br><hr>
+
+
+
+
+
+
+	<p id="demo"></p>
+
+	<button type="button" onclick="sort_object()">
+		Sort array by num
+	</button>
+
+	<button type="button" onclick="sort_property()">
+		sort array by property
+	</button>
+
+	<script type="text/javascript">
+		var cars = [
+			{type: 'Subaru', year:2018},
+			{type: 'BMW', year:2001},
+			{type: 'Mercedes', year:2016}
+		];
+		document.getElementById('demo').innerHTML = cars[0].type+' '+cars[0].year + '<br>' + cars[1].type +' '+ cars[1].year + '<br>'+cars[2].type +' '+ cars[2].year;
+		function sort_object() {
+			cars.sort(function(a,b) {return a.year-b.year})
+			document.getElementById('demo').innerHTML = cars[0].type+' '+cars[0].year + '<br>' + cars[1].type +' '+ cars[1].year + '<br>'+cars[2].type +' '+ cars[2].year;
+		}
+		function sort_property() {
+			cars.sort(function(a,b) {
+				if (a.type.toLowerCase()>b.type.toLowerCase()) 
+					return 1;
+				else return -1;
+				 
+			})
+			document.getElementById('demo').innerHTML = cars[0].type+' '+cars[0].year + '<br>' + cars[1].type +' '+ cars[1].year + '<br>'+cars[2].type +' '+ cars[2].year;
+		}
+	</script>
+
+
+	<br><br><hr>
+
+	<h1>Use RegExp Object</h1>
+	<p id="part1">The best thing in life is football</p>
+
+	<button type="button" onclick="search()">
+		Use Search
+	</button>
+
+	<button type="button" onclick="test()">
+		test
+	</button>
+
+	<button type="button" onclick="exec()">
+		exec
+	</button>
+
+	<p id="display"></p>
+	<script type="text/javascript">
+		var text=document.getElementById('part1').innerHTML;
+		function search () {
+			document.getElementById('display').innerHTML = text.search(/[be]es+/);
+		}
+		function test () {
+			document.getElementById('display').innerHTML = (/[be]es+/).test(text);
+		}
+		function exec () {
+			document.getElementById('display').innerHTML = (/[be]es+/).exec(text);
+		}
+
+	</script>
+
+
+	<br><br><hr>
+
+	<h1>JSON</h1>
+	<p id="json"></p>
+
+	<script type="text/javascript">
+		var str= '{"employees":['+' {"name":"wei","age":20}, '+' {"name":"jay", "age":40}]}'
+		var obj = JSON.parse(str);
+		document.getElementById('json').innerHTML =obj.employees[1].name;
+	</script>
+
+
+	<br><br><hr>
+
+	<h1>form validity</h1>
+	<label>Password: </label>
+	<input id="id_password" type="password" name="input_password" required>
+	<br>
+	<p id="valid_message1"></p>
+	<br>
+	<label>Full Name</label>
+	<input id="id_name" type="text" name="input_name" required>
+	<br>
+	<p id="valid_message2"></p>
+	<br>
+	<label>Postal Code</label>
+	<input id="id_postal" type="text" name="input_postal" required="" pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]">
+	<br>
+	<p id="valid_message3"></p>
+
+	<button type="button" onclick="validate()">
+		check form
+	</button>
+
+	<script type="text/javascript">
+		function validate () {
+			var message1 = '';
+			var message2 = '';
+			var message3 = '';
+			var input_password =document.getElementById('id_password');
+			var input_name = document.getElementById('id_name');
+			var input_postal = document.getElementById('id_postal');
+			if (input_password.checkValidity() == false) {message1 = input_password.validationMessage;
+			}
+			if (input_name.checkValidity()==false) {
+				message2 = input_name.validationMessage;
+			}
+			if (input_postal.checkValidity()==false) {
+				message3 = input_postal.validationMessage;
+			}
+
+			document.getElementById('valid_message1').innerHTML = message1;
+			document.getElementById('valid_message2').innerHTML = 
+				message2;
+			document.getElementById('valid_message3').innerHTML = 
+				message3;
+		}
+	</script>
+
+	<br><br><hr>
+	<h1>obj in JS</h1>
+	<p id="content"></p>
+
+	<script type="text/javascript">
+		function person (first_name,last_name,age,eye_color) {
+			this.first_name=first_name;
+			this.last_name=last_name;
+			this.age=age;
+			this.eye_color=eye_color;
+		}
+		person.prototype.full_name = function() {
+			return this.first_name+' '+this.last_name;
+		};
+
+		var father = new person ('john','joe',50,'blue');
+		var mother = new person ('sally','rally',48,'green');
+
+		document.getElementById('content').innerHTML = mother.full_name();
+	</script>
+	
+	<br>
+	<p id="content2"></p>
+	<p id="content3"></p>
+	<script type="text/javascript">
+		var person = {
+			first_name: 'john',
+			last_name: 'Doe',
+			full_name: function () {
+				return this.first_name+' '+this.last_name;
+			}
+		}
+		var new_name = {
+			first_name: 'mary',
+			last_name: 'doe'
+		}
+		x_name=person.full_name();
+		y_name = person.full_name.apply(new_name);
+		document.getElementById('content2').innerHTML = x_name;
+		document.getElementById('content3').innerHTML = y_name;
+	</script>
+
+	<br><br><hr>
+	<h1>Closure (see console)</h1>
+	<!-- <script type="text/javascript">
+		var x = 10;
+		function test(){
+		console.log(x);
+		x = 20;
+		console.log(x);
+		var x = 0;
+		console.log(x);
+		}
+		test();
+		console.log(x);
+	</script> -->
+
+	<script type="text/javascript">
+		function test(){
+		console.log(x);
+		x = 20;
+		console.log(x);
+		}
+		console.log(x);
+		var x = 10;
+		test();
+		console.log(x);
+	</script>
+
+	<br><br><hr>
+	<h1>dom practice</h1>
+	
+
+
+</body>
+</html>
