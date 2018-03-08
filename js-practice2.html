@@ -312,8 +312,76 @@
 
 	<br><br><hr>
 	<h1>dom practice</h1>
-	
 
+	<button type="button" onclick="square_move()">
+		Move Square
+	</button>
 
+	<div id="large_square" style="width: 400px;height: 400px;background-color: green;position: relative;">
+		<div id="small_square" style="width: 50px;height: 50px;background-color: red;position: absolute;"></div>
+	</div>
+
+	<script type="text/javascript">
+		function square_move () {
+			var small_square = document.getElementById('small_square');
+			var square_postion = 0;
+			var movement = setInterval (frame,0.0001);
+			function frame () {
+				if (square_postion==350) {clearInterval(movement)} else {
+					square_postion ++;
+					small_square.style.top = square_postion + 'px';
+					small_square.style.left = square_postion + 'px';
+				}
+			}
+		}
+	</script>
+
+	<br>
+
+	<div onmouseover="mouse_over(this)" onmouseout="mouse_out(this)" style="background-color: red;width: 120px;height: 20px;padding: 40px" >Mouse over</div>
+
+	<script type="text/javascript">
+		function mouse_over (obj_content) {
+			obj_content.innerHTML='color changed';
+			obj_content.style.backgroundColor='green'
+		}
+		function mouse_out (obj_content) {
+			obj_content.innerHTML = 'color changed again';
+			obj_content.style.backgroundColor = 'blue';
+		}
+	</script>
+
+	<br>
+
+	<div onmousedown="mouse_down(this)" onmouseup="mouse_up(this)" style="background-color: red;width: 90px;height: 20px;padding: 40px">click</div>
+
+	<script type="text/javascript">
+		function mouse_down (obj_content) {
+			obj_content.style.backgroundColor = 'green';
+			obj_content.innerHTML = 'release';
+		}
+		function mouse_up (obj_content) {
+			obj_content.style.backgroundColor = 'blue';
+			obj_content.innerHTML = 'color changed';
+		}
+	</script>
+
+	<br>
+	<h2>Second method</h2>
+	<button type="button" id="last_button">
+		try this
+	</button>
+	<script type="text/javascript">
+			var button_function = document.getElementById('last_button');
+			button_function.addEventListener('mouseover',function_over);
+			button_function.addEventListener('mouseout',function_out);
+			function function_over () {
+				document.getElementById('last_button').innerHTML = 'mouse over';
+			}
+			function function_out () {
+				document.getElementById('last_button').innerHTML = 'out';
+			}
+
+	</script>
 </body>
 </html>
