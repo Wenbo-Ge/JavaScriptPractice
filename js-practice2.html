@@ -158,7 +158,7 @@
 		Use Search
 	</button>
 
-	<button type="button" onclick="test()">
+	<button type="button" onclick="test1()">
 		test
 	</button>
 
@@ -172,8 +172,8 @@
 		function search () {
 			document.getElementById('display').innerHTML = text.search(/[be]es+/);
 		}
-		function test () {
-			document.getElementById('display').innerHTML = (/[be]es+/).test(text);
+		function test1 () {
+			document.getElementById('display').innerHTML = /[be]es+/.test(text);
 		}
 		function exec () {
 			document.getElementById('display').innerHTML = (/[be]es+/).exec(text);
@@ -322,17 +322,37 @@
 	</div>
 
 	<script type="text/javascript">
+		var movement_process =0;
 		function square_move () {
 			var small_square = document.getElementById('small_square');
+			if (movement_process==0) {
 			var square_postion = 0;
-			var movement = setInterval (frame,0.0001);
+			var movement = setInterval (frame,5);
 			function frame () {
-				if (square_postion==350) {clearInterval(movement)} else {
+				if (square_postion==350) {
+					clearInterval(movement);
+				} else {
 					square_postion ++;
 					small_square.style.top = square_postion + 'px';
 					small_square.style.left = square_postion + 'px';
 				}
 			}
+				movement_process++;
+			} else {
+			var square_postion = 350;
+			var movement = setInterval (frame,5);
+			function frame () {
+				if (square_postion==0) {
+					clearInterval(movement);
+				} else {
+					square_postion --;
+					small_square.style.top = square_postion + 'px';
+					small_square.style.left = square_postion + 'px';
+				}
+			}
+				movement_process--;
+			}
+
 		}
 	</script>
 
