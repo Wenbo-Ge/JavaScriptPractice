@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Practice</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+	<style type="text/css">
+		.current {
+		font-size: 20px;
+		color: green;
+		background-color: yellow;
+		width: 100px;
+		height: 100px;
+		text-align: center;
+		padding: 60px auto;
+		}
+		.new {
+		font-size: 10px;
+		color: grey;
+		background: black;
+		height: 50px;
+		width: 100px;
+		}
+		.ancestors * { 
+    	display: block;
+    	border: 2px solid grey;
+    	color: grey;
+    	padding: 5px;
+    	margin: 15px;
+}
+	</style>
+</head>
+<body>
+
+<button type="button" id="click_hide">
+click to hide
+</button>
+<p id="click_alert_background">
+<button type="button" id="dblclick_alert">
+	double click to alert
+</button>
+</p>
+
+
+
+
+
+<script type="text/javascript">
+	// <!-- Method 1 -->
+	$(document).ready(function(){
+		$('#click_hide').on({
+			click:function(){
+				$(this).hide();
+			}
+		});
+		$('#dblclick_alert').on({
+			dblclick:function(){
+				alert('Warning');
+			}
+		});
+		$('#click_alert_background').on({
+			mouseover:function(){
+				$(this).css('backgroundColor','red');
+			}
+		});
+		$('#click_alert_background').on({
+			mouseout:function(){
+				$(this).css('backgroundColor','white');
+			}
+		});
+	});
+	// <!-- Method 2 -->
+	// $(document).ready(function(){
+	// 	$('#click_hide').on('click',function(){
+	// 		$(this).hide();
+	// 	});
+	// });
+	// Method 3
+	// $(document).ready(function(){
+	// 	$('#click_hide').click(function(){
+	// 		$(this).hide();
+	// 	});
+	// });
+</script>
+
+<br><br><hr>
+<p id="content-showHide">Hide and Show</p>
+<button id="button-showHide" type="button">show/hide animate</button>
+
+<br><br><hr>
+<p id="content-fade">Fade out</p>
+<button id="button-fade" type="button">fade out and show</button>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		// var flag= true;
+		$('#button-showHide').click(function(){
+			$('#content-showHide').toggle(1000);
+		});
+		$('#button-fade').click(function(){
+			$('#content-fade').fadeToggle(1000);
+		});
+	});
+</script>
+
+
+<br><br><hr>
+<button type="button" id="button-start">start</button>
+<button type="button" id="button-stop">stop</button>
+<div>
+	<div id="div-square" style="width: 100px;height: 100px;background: white;font-size: 12px;opacity: 1">
+	Animate
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		// 通过设置flag and if else 来实现点击往返效果
+		var status = true;
+		$('#button-start').click(function(){
+			if (status) {
+				$('#div-square').animate({
+				'height': '200px',
+	        	'width': '200px',
+	        	'opacity': '0.5',
+	        	'backgroundColor':'black',
+	        	'fontSize': '30px',
+	        	'color': 'white'
+				},2000,function(){alert('back to origin')});
+			} else {
+				$('#div-square').animate({
+				'height': '100px',
+	        	'width': '100px',
+	        	'opacity': '1',
+	        	'backgroundColor': 'white',
+	        	'fontSize': '12px',
+	        	'color':'black'
+				},2000);
+			}
+			status = !status;
+		});	
+		$('#button-stop').click(function(){
+			$('#div-square').stop();
+		});
+	});
+</script>
+
+<p id="content-dynamic">Dynamic</p>
+<button type="button" id="button-dynamic">click</button>
+
+<script type="text/javascript">
+	// var flag=0;
+	$(document).ready(function(){
+		$('#button-dynamic').click(function(){
+			$('#content-dynamic').slideToggle(1000).slideToggle(1000).css('color','red');
+		});
+	});
+</script>
+
+<br><br><hr>
+<button type="button" id="button-callBack">
+	click
+</button>
+<p id="call-back1" style="display: none;">How</p>
+<p id="call-back2" style="display: none;">Are</p>
+<p id="call-back3" style="display: none;">You?</p>
+
+<script type="text/javascript">
+	function callBack (){
+		$('#call-back2').show(1000,function(){
+			$('#call-back3').show(1000);
+		});
+	}
+	$(document).ready(function(){
+		$('#button-callBack').click(function(){
+			$('p').hide();
+			$('#call-back1').toggle(1000, callBack());
+		})
+	})
+</script>
+
+<br><br><hr>
+
+<p id="content-html">this is some <b>bold</b> text in a paragraph.</p>
+<button type="button" id="button-html1">show text</button>
+<button type="button" id="button-html2">show html</button>
+<p>Name: <input type="text" id="content-input" value="AAA"></p>
+<button type="button" id="button-showValue">
+	show value
+</button>
+<button type="button" id="button-setValue">
+	set to default
+</button>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#button-html1').click(function(){
+			alert($('#content-html').text());
+		});
+		$('#button-html2').click(function(){
+			alert($('#content-html').html());
+		});
+		$('#button-showValue').click(function(){
+			alert($('#content-input').val());
+		});
+		$('#button-setValue').click(function(){
+			$('#content-input').val('input name');
+		});
+
+	});
+</script>
+<br><br><hr>
+
+<button type="button" id="button-setContent">
+	Set defualt content to html
+</button>
+<p id="content-setHtml"></p>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#button-setContent').click(function(){
+			$('#content-setHtml').text('Hello Front End');
+		});
+	});
+</script>
+
+
+<br><br><hr>
+<a href="https://sunnyfuture.ca" id="link">Sunny Future</a>
+<br>
+<button type="button" id="button-changeHref">
+	change href value
+</button>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#link').attr('href',function(a,b){
+			return b + '/jobfair';
+		});
+	});
+</script>
+<br><br><hr>
+<p id="content-changeValue">How are you?</p>
+<button type="button" id="button-changeValue">
+	click
+</button>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#button-changeValue').click(function(){
+			$('#content-changeValue').append(' Not bad!');
+		});
+	});
+</script>
+
+<br><br><hr>
+<div id="div-content">
+	<p>12</p>
+	<p>34</p>
+</div>
+<button id="button-removeEmpty">remove</button>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#button-removeEmpty').click(function(){
+			$('#div-content p:nth-of-type(1)').remove();
+		});
+	});
+</script>
+
+<br><br><hr>
+<div id="div-toggleClass" class="current">Hello</div>
+<button type="button" id="button-toggleClass">
+	change
+</button>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#button-toggleClass').click(function(){
+			$('#div-toggleClass').toggleClass('new');
+		});
+	});
+</script>
+
+<br><br><hr>
+<div style="width:500px;" class="ancestors">div (great-grandparent)
+    <ul>ul (grandparent)  
+      <li>li (direct parent)
+        <span>span</span>
+      </li>
+      <li></li>
+      <li></li>
+    </ul>   
+  </div>
+
+ <script type="text/javascript">
+ 	$(document).ready(function(){
+		$('span').parent().css({
+			"color": "red", 
+			"border": "2px solid red"
+		}).siblings().css({
+			"color": "red", 
+			"border": "2px solid blue"
+		}).children().css({
+			"color": "red", 
+			"border": "2px solid green"
+		});
+	});
+ </script>
+</body>
+</html>
