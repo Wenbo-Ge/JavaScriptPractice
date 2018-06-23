@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Practice</title>
+	<meta charset="UTF-8">
+
+</head>
+<body>
+<!-- 遍历1-100，替换倍数 -->
+<!-- <script type="text/javascript">
+	for (var i = 0; i <=100; i++) {
+		if (i%15===0) {
+			console.log('十五的倍数');
+		} else if (i%3===0){
+            console.log('三的倍数')
+		}else if (i%5===0) {
+			console.log('五的倍数')
+		}else{console.log(i)}
+	}
+</script> -->
+
+<!-- 统计每个单词出现的次数 -->
+<!-- <script type="text/javascript">
+	var sentence='Cassandra was cursed to utter prophecies which were true but which no one believed. A common version of her story relates how, in an effort to seduce her, Apollo gave her the power of prophecy. When she refused him, he spat into her mouth to inflict a curse that nobody would ever believe her prophecies.'
+	
+	function times(arr){
+		var obj = new Object();
+		var arr_1=arr.replace(',','').replace('.','').split(' ');
+	console.log(arr_1);
+	for (var i = 0; i < arr_1.length; i++) {
+		if (obj[arr_1[i]]) {
+            obj[arr_1[i]]++
+		} else {
+			obj[arr_1[i]]=1;
+		}
+	}
+	return obj;
+}
+	console.log(times(sentence));
+</script> -->
+
+<!-- 统计字符串中出现最多的字母 -->
+<!-- <script type="text/javascript">
+	var str1="jhadfgskjfajhdewqe";
+	function search(arr){
+		var arr_2=arr.split('');
+		var arrA=[];
+		var arrB=[];
+		for (var i = 0; i < arr_2.length; i++) {
+			if (arrA.indexOf(arr_2[i])==-1) {
+				arrA.push(arr_2[i]);
+				arrB.push(1);
+			} else {
+				arrB[arrA.indexOf(arr_2[i])]++;
+			}
+		}
+		console.log(arrB);
+		return arrA[arrB.indexOf(Math.max.apply(Math,arrB))];
+	}
+	console.log(search(str1));
+</script> -->
+
+<!-- 统计字符串中最长的字符 -->
+<!-- <script type="text/javascript">
+	var str='I saw a hippopotamus';
+	function longestWord (arr){
+		var wordArray=arr.split(' ');
+		var longestWordSoFar='';
+		for (var i = 0; i < wordArray.length; i++) {
+			var currentWord = wordArray[i];
+			if (currentWord.length > longestWordSoFar.length ) {
+				longestWordSoFar=currentWord;
+			}
+		}
+		return longestWordSoFar;
+	}
+	console.log(longestWord(str));
+</script> -->
+
+<!-- 数组求和 -->
+<!-- <script type="text/javascript">
+	var str='12345';
+	function sum(arr){
+		var arr_3=arr.split('').map(Number);
+		var sum=0;
+		for (var i = 0; i < arr_3.length; i++) {
+			sum +=arr_3[i];
+		}
+		return sum;
+	}
+	console.log(sum(str));
+</script> -->
+
+<!-- 数组去重 -->
+<!-- <script type="text/javascript">
+	var str='23225678999';
+	function unique(arr){
+		var arr_4=arr.split('');
+		var arr_new=[];
+		for (var i = 0; i < arr_4.length; i++) {
+			if (arr_new.indexOf(arr_4[i])==-1) {
+				arr_new.push(arr_4[i]);
+			}
+		}
+		return arr_new;
+	}
+	console.log(unique(str));
+</script> -->
+
+<!-- 字符串回文 -->
+<!-- <script type="text/javascript">
+	    var str1 = 'abcdefgh';
+    	var str2 = 'abcdcba';
+    	function huiwen(arr){
+    		return arr==arr.split('').reverse().join('');
+    	}
+    	console.log(huiwen(str2));
+</script> -->
+
+<!-- 交换两个数值或者字符 -->
+<!-- <script type="text/javascript">
+	var str1='走';
+	var str2='你';
+	function swap(a,b){
+		var arr=[a,b];
+		var b =arr[0];
+		var a =arr[1];
+		return a + ' ' +b
+	}
+	console.log(swap(str1,str2));
+</script> -->
+
+<!-- 求数组最大值和最小值 -->
+<!-- <script type="text/javascript">
+	var arr=[2,44,3,-12,43,5,8,67,54,32,-211];
+	var max=Math.max.apply(Math,arr);
+	var min=Math.min.apply(Math,arr);
+	console.log(max,min);
+</script> -->
+
+<!-- 冒泡排序 -->
+<!-- <script type="text/javascript">
+	var arr_5 = [2,3,45,64,321,3,21,321,31,999];
+	function bubbleSort(arr){
+		for (var i = 0; i < arr.length; i++) {
+			for (j = 0; j < arr.length-i-1; j++) {
+				if (arr[j]>arr[j+1]) {
+					var tem=arr[j];
+					arr[j]=arr[j+1];
+					arr[j+1]=tem;
+				}
+			}
+		}
+		return arr;
+	}
+	console.log(bubbleSort(arr_5));
+</script> -->
+
+<!-- 寻找中位数 -->
+
+<!-- <script type="text/javascript">
+	var str='1,2,3,4,5,6,7';
+	function median(arr){
+		var arr_6=arr.split(',');
+		if (arr_6.length % 2 ==1) {
+			return arr_6[Math.floor(arr_6.length/2)];
+		}else{
+			var idx = arr_6.length /2;
+			return (arr_6[idx - 1] + arr_6[idx]) / 2;
+		}
+	}
+	console.log(median(str));
+</script> -->
+
+<!-- 求阶乘 -->
+
+<script type="text/javascript">
+	function fac(num){
+		if (num<=1) {
+			return 1;
+		}else{
+			return num*fac(num-1);
+		}
+	}
+	console.log(fac(4));
+</script>
+
+</body>
+</html>
