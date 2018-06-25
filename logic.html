@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>logic test</title>
+</head>
+<body>
+<!--遍历1-100，替换倍数-->
+<script type="text/javascript">
+
+	for(i=1;i<=100;i++){
+	    if (i%15===0){
+	        console.log('遍历1-100，替换倍数: ','fifteen')
+		}else if(i%5===0){
+	        console.log('遍历1-100，替换倍数: ','five')
+		}else if(i%3===0){
+		    console.log('遍历1-100，替换倍数: ','three')
+		}else{
+		    console.log('遍历1-100，替换倍数: ',i)
+		}
+
+// 三元表达式写法
+// 		var result= i%15===0 ? 'fifteen' : i%3===0 ? 'three' : i%5===0 ? 'five' : i;
+// 		document.write(result);
+
+}
+</script>
+
+<!--call back js-->
+<script>
+    const arr = [10, 12, 15, 21];
+    for (var i = 0; i < arr.length; i++) {
+        setTimeout(function(local_i) {
+            console.log('call back js: ','Index: ' + i + ', element: ' + local_i);
+        }(i), 3000);
+    }
+</script>
+
+<!--每个单词出现的次数-->
+<script type="text/javascript">
+    var sentence = "Cassandra was cursed to utter prophecies which were true but which no one believed. A common version of her story relates how, in an effort to seduce her, Apollo gave her the power of prophecy. When she refused him, he spat into her mouth to inflict a curse that nobody would ever believe her prophecies.";
+    function search(sentence){
+        var arr = sentence.replace(',','').replace('.','').split(" ");
+
+        //var obj={};
+        var obj= new Object();
+        for(i=0;i<arr.length;i++){
+            if(obj[arr[i]]){
+                obj[arr[i]]++;
+            }else{
+                obj[arr[i]]=1;
+            }
+        }
+
+        return JSON.stringify(obj);
+        //return obj;
+
+    }
+    console.log('每个单词出现的次数: ',search(sentence));
+
+</script>
+
+<!--数组求和-->
+<script>
+    var str='1,2,3,4,5';
+    var arr_1=str.split(',').map(Number);
+    console.log(arr_1); 
+	function sum(arr) {
+        var s = 0;
+        for (i=0;i<=arr.length-1; i++) {
+            s += arr[i];
+        }
+        return s;
+    }
+    console.log('数组求和: ',sum(arr_1));
+</script>
+
+<!--字符串回文判断-->
+<script type="text/javascript">
+    var str1 = 'abcdefgh';
+    var str2 = 'abcdcba';
+    function plalindrome(str){
+        return str == str.split('').reverse().join('');
+    }
+    console.log('字符串回文判断: ',plalindrome(str1));//false
+    console.log('字符串回文判断: ',plalindrome(str2));//true
+</script>
+
+<!--数组去重-->
+<script type="text/javascript">
+    var arr_2 = [2,4,2,2,5,6,7,8,9,9,9];
+    function unique(arr){
+        var arr1 = [];
+        for (var i = 0;i < arr.length;i ++){
+            if(arr1.indexOf(arr[i]) == -1){
+                arr1.push(arr[i]);
+            }
+        }
+        return arr1;
+    }
+    console.log('数组去重: ',unique(arr_2));//[2, 4, 5, 6, 7, 8, 9]
+</script>
+
+<!--统计一个字符串中出现最多的字母-->
+<script type="text/javascript">
+    var str1="jhadfgskjfajhdewqe";
+    function search(arr){
+        var arr_2=arr.split('');
+        var arrA=[];
+        var arrB=[];
+        for (var i = 0; i < arr_2.length; i++) {
+            if (arrA.indexOf(arr_2[i])==-1) {
+                arrA.push(arr_2[i]);
+                arrB.push(1);
+            } else {
+                arrB[arrA.indexOf(arr_2[i])]++;
+            }
+        }
+        console.log(arrB);
+        return arrA[arrB.indexOf(Math.max.apply(Math,arrB))];
+    }
+    console.log(search(str1));
+</script>
+
+<!--统计字符串中字符最长的单词-->
+<script type="text/javascript">
+    var str='I saw a hippopotamus';
+    function longestWord (arr){
+        var wordArray=arr.split(' ');
+        var longestWordSoFar='';
+        for (var i = 0; i < wordArray.length; i++) {
+            var currentWord = wordArray[i];
+            if (currentWord.length > longestWordSoFar.length ) {
+                longestWordSoFar=currentWord;
+            }
+        }
+        return longestWordSoFar;
+    }
+    console.log(longestWord(str));
+</script>
+
+<!--冒泡排序-->
+<script type="text/javascript">
+    var arr1 = [2,3,45,64,321,3,21,321,31,999];
+        function bubbleSort(arr){
+                for (var i = 0; i < arr.length; i++) {
+                    for (var j = 0; j < arr.length-i-1; j++) {
+                        if (arr[j]>arr[j+1]) {
+                            var tem=arr[j];
+                            arr[j]=arr[j+1];
+                            arr[j+1]=tem;
+                        }
+                    }
+                }
+                return arr;
+            }
+    console.log('冒泡排序: ',bubbleSort(arr1));//[2, 3, 3, 21, 31, 45, 64, 321, 321, 999]
+</script>
+
+<!--交换两个数值-->
+<script type="text/javascript">
+    var a = 'need';
+    var b = 'job';
+    function swap (a,b) {
+       var arr=[a,b];
+       var b=arr[0];
+       var a=arr[1];
+        return a+' '+b;
+    }
+    console.log('交换两个数值: ',swap(a,b));
+</script>
+
+<!--求数组中最大值与最小值-->
+<script type="text/javascript">
+    var arr1 = [2,44,3,-12,43,5,8,67,54,32,-211];
+    var max = Math.max.apply(Math,arr1);
+    var min = Math.min.apply(Math,arr1);
+//    function m(arr){
+//        return Math.max.apply(Math,arr);
+//	}
+    console.log('求数组中最大值与最小值: ',max-min);//278
+//	console.log(m(arr1));
+</script>
+
+<!--求阶乘-->
+<script>
+    function fac(num){
+        if(num<=1){
+            return 1;
+        }else{
+// 闭包
+            return num*fac(num-1);
+
+        }
+    }
+    console.log('求阶乘: ',fac(4));
+</script>
+
+<!--寻找中位数-->
+<script>
+    //如果数组不是排好序的呢？？
+    var str='1,2,3,4,5,6,7';
+    var arr_random=[2,5,4,1,3,7,6];
+    function sortNumber(a,b){
+        return a-b;
+	}
+	var arr_sort=arr_random.sort(sortNumber);
+    var arr_3=str.split(',');
+    console.log(arr_3);
+    console.log(arr_sort);
+    function median(arr) {
+        if (arr.length % 2 == 1) {
+            return arr[Math.floor(arr.length / 2)];
+        } else {
+            var idx = arr.length / 2;
+            return (arr[idx - 1] + arr[idx]) / 2;
+        }
+    }
+    console.log('寻找中位数: ',median(arr_sort));
+</script>
+
+<!--天天爱消除-->
+<script type="text/javascript">
+	var str='aaabccdddfffgggfffcccc';
+    function reduce(input) {
+        var arr = input.split("");
+        for(var i=0; i<arr.length; i++){
+            if(arr[i] === arr[i+1]){
+                arr.splice(i,2);
+                i=-1;
+            }
+        }
+        if(arr.length === 0){
+           return console.log('天天爱消除', "Empty String");
+        } else {
+          return  console.log('天天爱消除', arr.join(""));
+        }
+    }
+
+    reduce(str);
+</script>
+
+
+<!--找数值接近的一组-->
+<script type="text/javascript">
+	var str='-20 -3916237 -357920 -3620601 7374819 -7330761 30 6246457 -6461594 266854';
+    function closest(input) {
+        var array = input.split(" ");
+        array.sort(function(a,b){return a-b});
+
+//        var numbers = [];
+        var output = "";
+        var smallestdiff = Number.MAX_VALUE;
+
+        for (var i = 0; i < array.length-1; i++) {
+            var current = array[i];
+            var next = array[i+1];
+            var diff = Math.abs(current - next);
+            if (diff < smallestdiff) {
+//                numbers = [];
+                output = "";
+                smallestdiff = diff;
+            }
+            if (diff == smallestdiff) {
+//                numbers.push(current);
+                output += current + ",";
+//                numbers.push(next);
+                output += next + ",";
+            }
+        }
+        console.log('寻找接近数值：', output);
+    }
+    closest(str);
+</script>
+
+<!--增删实现回文-->
+<script type="text/javascript">
+	var str='abcdcbab';
+    function getIndex(rawStr){
+        var obj = str.split('');
+		var left = 0
+		var rite = obj.length - 1
+		var index = -1
+
+        while (left < rite)
+        {
+            if (obj[left] === obj[rite])
+            {
+                left++, rite--
+            }
+            else
+            {
+                index = (obj[left] === obj[rite-1]  &&  obj[left+1] === obj[rite-2])? rite : left
+                break
+            }
+        }
+
+        return index
+    }
+    console.log('删减实现回文：', getIndex(str))
+</script>
+
+<!--袋鼠问题-->
+<script type="text/javascript">
+    function main(str) {
+        var x1_temp = str.split(' ').map(Number);
+        var x1 = x1_temp[0];
+        var v1 = x1_temp[1];
+        var x2 = x1_temp[2];
+        var v2 = x1_temp[3];
+
+        // v1 * n + x1 = v2 * n + x2
+        // v1 * n - v2 * n = x2 - x1
+        // n = (x2 - x1) / (v1 - v2) //check if n is positive and natural
+
+        var jumps = (x2 - x1) / (v1 - v2);
+        var result = (jumps > 0 && jumps%1===0) ? 'YES' : 'NO'
+        console.log('袋鼠问题：', result)
+    }
+    main('0 3 4 2');
+</script>
+
+
+
+
+
+
+</body>
+</html>
