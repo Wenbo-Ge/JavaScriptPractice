@@ -320,9 +320,50 @@
     main('0 3 4 2');
 </script>
 
+<!--求数组中第二大的值-->
+<script>
+	var arr_4=[2,4,5,1,3,6,9,8,7];
+	var large=Number.MIN_VALUE;
+	var sec_large=Number.MIN_VALUE;
+	function find(arr){
+	    for (var i=0; i<= arr.length; i++){
+	        if (arr[i]>large){
+	            large=arr[i];
+			}
+		}
+	  return large;
+	}
+	console.log(find(arr_4));
+</script>
 
 
 
+<!--判断两个字符串是否mapping-->
+<script>
+	var str3='aacc';
+	var str4='xxyy';
+	var arrA=str3.split('');
+	var arrB=str4.split('');
+	var obj = new Object();
+	var result=true;
+	for (var i=0; i<arrA.length; i++){
+	    if(obj[arrA[i]]){
+			if(obj[arrA[i]]!=arrB[i]){
+			    result=false;
+			}
+		}else{
+            if(str4.indexOf(arrB[i])==i){
+                obj[arrA[i]]=arrB[i];
+            }else{
+                result=false;
+            }
+		}
+        //console.log(result);
+	}
+	console.log(result);
+
+
+</script>
 
 
 </body>
