@@ -322,16 +322,19 @@
 
 <!--求数组中第二大的值-->
 <script>
-	var arr_4=[2,4,5,1,3,6,9,8,7];
-	var large=Number.MIN_VALUE;
-	var sec_large=Number.MIN_VALUE;
+	var arr_4=[3,1,2];
+
 	function find(arr){
+	    var large=Number.MIN_VALUE;
 	    for (var i=0; i<= arr.length; i++){
 	        if (arr[i]>large){
+	            sec_large=large;
 	            large=arr[i];
+			}else if(arr[i]<large && arr[i]>sec_large){
+	            sec_large=arr[i];
 			}
 		}
-	  return large;
+	  return sec_large;
 	}
 	console.log(find(arr_4));
 </script>
