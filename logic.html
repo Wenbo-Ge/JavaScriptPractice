@@ -368,6 +368,24 @@
 
 </script>
 
+<!--数组移n位-->
+<script>
+	var arr_5='1 2 3 4 5'
+    function move(arr) {
+        var n_temp = arr.split(' ');
+//        var n = parseInt(n_temp[0]);
+        var k = parseInt(n_temp[3]);
+        a = arr.split(' ');
+        a = a.map(Number);
 
+        for (var i = 0; i < k; i++) {
+            var first = a.shift();
+            a.push(first);
+        }
+
+        console.log(a.join(' '));
+    }
+    move(arr_5);
+</script>
 </body>
 </html>
