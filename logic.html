@@ -341,10 +341,10 @@
 
 
 
-<!--判断两个字符串是否mapping-->
+<!--mapping or not-->
 <script>
-	var str3='aacc';
-	var str4='xxyy';
+	var str3='aac';
+	var str4='xxy';
 	var arrA=str3.split('');
 	var arrB=str4.split('');
 	var obj = new Object();
@@ -363,7 +363,7 @@
 		}
         //console.log(result);
 	}
-	console.log(result);
+	console.log('Mapping Question:', result);
 
 
 </script>
@@ -386,6 +386,28 @@
         console.log(a.join(' '));
     }
     move(arr_5);
+</script>
+
+
+<!--删除几位数得到相同数-->
+<script>
+	var arr_5=[c,d,e];
+	var arr_6=[a,b,c];
+    function main() {
+        var a = arr_5;
+        var b = arr_6;
+        var aCount = getCharCount(a);
+        var bCount = getCharCount(b);
+        var deleteCount = 0;
+        for(var i = 0; i < aCount.length; i++) {
+            var min = Math.min(aCount[i], bCount[i]);
+            var max = Math.max(aCount[i], bCount[i]);
+            deleteCount += (max - min)
+        }
+
+        console.log(deleteCount);
+    }
+    main();
 </script>
 </body>
 </html>
