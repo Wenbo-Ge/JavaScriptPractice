@@ -391,11 +391,11 @@
 
 <!--删除几位数得到相同数-->
 <script>
-	var arr_5=[c,d,e];
-	var arr_6=[a,b,c];
+
+		var a = 'abc';
+		var b = 'cde';
     function main() {
-        var a = arr_5;
-        var b = arr_6;
+
         var aCount = getCharCount(a);
         var bCount = getCharCount(b);
         var deleteCount = 0;
@@ -406,6 +406,16 @@
         }
 
         console.log(deleteCount);
+    }
+    function getCharCount(str) {
+        var count = new Array(26);
+        count.fill(0);
+        for(var i = 0; i < str.length; i++) {
+            var index = str[i].charCodeAt(0) - 97;
+            count[index] = count[index] + 1;
+        }
+
+        return count;
     }
     main();
 </script>
