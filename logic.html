@@ -419,5 +419,33 @@
     }
     main();
 </script>
+
+
+<!--repetition issue-->
+<script>
+    function main() {
+        var m_temp = readLine().split(' ');
+        var m = parseInt(m_temp[0]);
+        var n = parseInt(m_temp[1]);
+        magazine = readLine().split(' ');
+        ransom = readLine().split(' ');
+        let tracker = {};
+        for (let i = 0; i < magazine.length; i++) {
+            if (!tracker[magazine[i]]) {
+                tracker[magazine[i]] = 0;
+            }
+            tracker[magazine[i]]++;
+        }
+        for (let i = 0; i < ransom.length; i++) {
+            if (tracker[ransom[i]]) {
+                tracker[ransom[i]]--;
+            } else {
+                console.log('No');
+                return;
+            }
+        }
+        console.log('Yes');
+    }
+</script>
 </body>
 </html>
