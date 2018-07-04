@@ -423,12 +423,14 @@
 
 <!--repetition issue-->
 <script>
+	str5='two times three is not four';
+	str6='give one grand today';
     function main() {
         var m_temp = readLine().split(' ');
         var m = parseInt(m_temp[0]);
         var n = parseInt(m_temp[1]);
-        magazine = readLine().split(' ');
-        ransom = readLine().split(' ');
+        magazine = str5.split(' ');
+        ransom = str6.split(' ');
         let tracker = {};
         for (let i = 0; i < magazine.length; i++) {
             if (!tracker[magazine[i]]) {
